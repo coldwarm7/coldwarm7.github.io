@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>coldwarm7</title>
+  
+  <subtitle>never stop learning</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-06-30T06:20:33.093Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>coldwarm7</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HelloBlog</title>
+    <link href="http://yoursite.com/2018/06/24/HelloBlog/"/>
+    <id>http://yoursite.com/2018/06/24/HelloBlog/</id>
+    <published>2018-06-24T08:22:35.000Z</published>
+    <updated>2018-06-30T06:20:33.093Z</updated>
+    
+    <content type="html"><![CDATA[<p>其实在很久之前大概就像有一个自己的个人博客，大概有多久之前呢，大概是两年前，鬼知道这两年我干了什么＝＝<br><a id="more"></a><br>关于博客，采用hexo＋github Pages初步已经搭建完成，但是里面的各种细节还没有设置好，一步一步来吧，我要学习的东西还有很多，markdown的语法也是初次接触，加油吧我的树。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"HelloMyBlog"</span>);</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;其实在很久之前大概就像有一个自己的个人博客，大概有多久之前呢，大概是两年前，鬼知道这两年我干了什么＝＝&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="hello" scheme="http://yoursite.com/tags/hello/"/>
+    
+      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+    
+  </entry>
+  
+</feed>
