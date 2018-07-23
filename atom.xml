@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-30T08:13:40.214Z</updated>
+  <updated>2018-07-23T05:34:01.894Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>windows使用git遇到HttpRequestException</title>
+    <link href="http://yoursite.com/2018/07/23/windows%E4%BD%BF%E7%94%A8git%E9%81%87%E5%88%B0HttpRequestException/"/>
+    <id>http://yoursite.com/2018/07/23/windows使用git遇到HttpRequestException/</id>
+    <published>2018-07-23T05:01:50.000Z</published>
+    <updated>2018-07-23T05:34:01.894Z</updated>
+    
+    <content type="html"><![CDATA[<p>win10使用git进行<code>git push</code>时出现<code>HttpRequestException</code>并且需要重新输入用户名和密码的解决方案<br><a id="more"></a></p><p>这是因为github<a href="https://githubengineering.com/crypto-removal-notice/" target="_blank" rel="noopener">禁用了弱加密</a>,可以下载<a href="https://github.com/Microsoft/Git-Credential-Manager-for-Windows/releases/tag/v1.16.2" target="_blank" rel="noopener">最新版本的Git凭据管理器</a>来解决这个问题。<br><a href="https://ws1.sinaimg.cn/large/0068YiZcgy1ftjqev6e56j30sq08s752.jpg" target="_blank" rel="noopener">下载如图.exe文件</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;win10使用git进行&lt;code&gt;git push&lt;/code&gt;时出现&lt;code&gt;HttpRequestException&lt;/code&gt;并且需要重新输入用户名和密码的解决方案&lt;br&gt;
+    
+    </summary>
+    
+      <category term="遇到的问题" scheme="http://yoursite.com/categories/%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>mongodb无法安装的问题解决</title>
