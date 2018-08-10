@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tree_big.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tree_small.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java，面试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="coldwarm7" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="面试问题总结java基础">
+<meta name="keywords" content="java，面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java面试(一)">
+<meta property="og:url" content="http://yoursite.com/2018/08/10/Java面试-一/index.html">
+<meta property="og:site_name" content="coldwarm7">
+<meta property="og:description" content="面试问题总结java基础">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/0068YiZcgy1fu4ie0t80jj30xc0i5k60.jpg">
+<meta property="og:image" content="https://camo.githubusercontent.com/5b764ff5af6204f82c7ae6237b20c41f9505aef8/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f382f392f313635316631396437633465393361333f773d38373626683d34393226663d706e6726733d313238303932">
+<meta property="og:updated_time" content="2018-08-10T04:49:49.482Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java面试(一)">
+<meta name="twitter:description" content="面试问题总结java基础">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/0068YiZcgy1fu4ie0t80jj30xc0i5k60.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/10/Java面试-一/"/>
+
+
+
+
+
+  <title>Java面试(一) | coldwarm7</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">coldwarm7</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never stop learning</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/10/Java面试-一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="辞树">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/huge.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="coldwarm7">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java面试(一)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-10T12:34:35+08:00">
+                2018-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/10/Java面试-一/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/10/Java面试-一/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="面试问题总结"><a href="#面试问题总结" class="headerlink" title="面试问题总结"></a>面试问题总结</h1><h3 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h3><p><img src="https://ws1.sinaimg.cn/large/0068YiZcgy1fu4ie0t80jj30xc0i5k60.jpg" alt=""><br><a id="more"></a></p>
+<h4 id="1-Java中的值传递和引用传递："><a href="#1-Java中的值传递和引用传递：" class="headerlink" title="1. Java中的值传递和引用传递："></a>1. Java中的值传递和引用传递：</h4><hr>
+<p>对象传递（数组、类、接口）是引用传递，原始类型数据（整型、浮点型、字符型、布尔型）传递是值传递。</p>
+<p><strong>值传递</strong>是指对象被值传递，意味着传递了对象的一个副本，即使副本被改变，也不会影响源对象。（因为值传递的时候，实际上是将实参的值复制一份给形参。）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    int num1 = 10;</span><br><span class="line">    int num2 = 20;</span><br><span class="line"></span><br><span class="line">    swap(num1, num2);</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;num1 = &quot; + num1);</span><br><span class="line">    System.out.println(&quot;num2 = &quot; + num2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void swap(int a, int b) &#123;</span><br><span class="line">    int temp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = temp;</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;a = &quot; + a);</span><br><span class="line">    System.out.println(&quot;b = &quot; + b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = 20</span><br><span class="line">b = 10</span><br><span class="line">num1 = 10</span><br><span class="line">num2 = 20</span><br></pre></td></tr></table></figure></p>
+<p><strong>引用传递</strong>是指对象被引用传递，意味着传递的并不是实际的对象，而是对象的引用。因此，外部对引用对象的改变会反映到所有的对象上。（因为引用传递的时候，实际上是将实参的地址值复制一份给形参。）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    int[] arr = &#123;1,2,3,4,5&#125;;</span><br><span class="line"></span><br><span class="line">    change(arr);</span><br><span class="line"></span><br><span class="line">    System.out.println(arr[0]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void change(int[] array) &#123;</span><br><span class="line">    //将数组的第一个元素变为0</span><br><span class="line">    array[0] = 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-与equals"><a href="#2-与equals" class="headerlink" title="2. ==与equals"></a>2. ==与equals</h4><hr>
+<p>== : 它的作用是判断两个对象的地址是不是相等。即，判断两个对象是不是同一个对象。</p>
+<p>equals() : 它的作用也是判断两个对象是否相等。但它一般有两种使用情况：</p>
+<p>情况1：类没有覆盖equals()方法。则通过equals()比较该类的两个对象时，等价于通过“==”比较这两个对象。<br>情况2：类覆盖了equals()方法。一般，我们都覆盖equals()方法来两个对象的内容相等；若它们的内容相等，则返回true(即，认为这两个对象相等)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class test1 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        String a = new String(&quot;ab&quot;); // a 为一个引用</span><br><span class="line">        String b = new String(&quot;ab&quot;); // b为另一个引用,对象的内容一样</span><br><span class="line">        String aa = &quot;ab&quot;; // 放在常量池中</span><br><span class="line">        String bb = &quot;ab&quot;; // 从常量池中查找</span><br><span class="line">        if (aa == bb) // true</span><br><span class="line">            System.out.println(&quot;aa==bb&quot;);</span><br><span class="line">        if (a == b) // false，非同一对象</span><br><span class="line">            System.out.println(&quot;a==b&quot;);</span><br><span class="line">        if (a.equals(b)) // true</span><br><span class="line">            System.out.println(&quot;aEQb&quot;);</span><br><span class="line">        if (42 == 42.0) &#123; // true</span><br><span class="line">            System.out.println(&quot;true&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><ul>
+<li>String中的equals方法是被重写过的，因为object的equals方法是比较的对象的内存地址，而String的equals方法比较的是对象的值。</li>
+<li>当创建String类型的对象时，虚拟机会在常量池中查找有没有已经存在的值和要创建的值相同的对象，如果有就把它赋给当前引用。如果没有就在常量池中重新创建一个String对象。</li>
+</ul>
+<h4 id="3-hashCode与equals"><a href="#3-hashCode与equals" class="headerlink" title="3. hashCode与equals"></a>3. hashCode与equals</h4><hr>
+<ul>
+<li>如果两个对象相等，则hashcode一定也是相同的</li>
+<li>两个对象相等,对两个对象分别调用equals方法都返回true</li>
+<li>两个对象有相同的hashcode值，它们也不一定是相等的</li>
+<li>因此，equals方法被覆盖过，则hashCode方法也必须被覆盖</li>
+<li>hashCode()的默认行为是对堆上的对象产生独特值。如果没有重写hashCode()，则该class的两个对象无论如何都不会相等（即使这两个对象指向相同的数据）</li>
+</ul>
+<h4 id="4-面向对象和面向过程的区别"><a href="#4-面向对象和面向过程的区别" class="headerlink" title="4. 面向对象和面向过程的区别"></a>4. 面向对象和面向过程的区别</h4><hr>
+<h5 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a>面向过程</h5><ul>
+<li>优点：性能高，因为类调用时需要实例化，开销比较大，比较消耗资源；比如嵌入式开发，Linux/Unix等一般采用面向过程开发，性能是最重要的因素。</li>
+<li>缺点：没有面向对象易维护，易复用，易扩展。<h5 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h5></li>
+<li>优点：易维护，易复用，易扩展，由于面向对象有封装，继承，多态的特性，可以设计出低耦合的系统，使系统更加的灵活，易于维护。</li>
+<li>性格比面向过程低。</li>
+</ul>
+<h4 id="5-Java代码运行过程"><a href="#5-Java代码运行过程" class="headerlink" title="5.Java代码运行过程"></a>5.Java代码运行过程</h4><hr>
+<p>Java源代码—-&gt;编译器—-&gt;jvm可执行的Java字节码(即.class文件中的虚拟指令)—-&gt;jvm—-&gt;jvm中的解释器—-&gt;机器可执行的二进制机器码—-&gt;程序运行</p>
+<h5 id="采用字节码的好处"><a href="#采用字节码的好处" class="headerlink" title="采用字节码的好处"></a>采用字节码的好处</h5><p>一定程度上解决了传统解释性语言执行效率低的问题，同时又保持了解释性语言可移植的特点。在运行java程序时比较高效。而且因为字节码并不专对一种特定的机器，因此java程序无需重新编译便可在多种不同的计算机上运行。</p>
+<h4 id="6-java与c-的区别"><a href="#6-java与c-的区别" class="headerlink" title="6. java与c++的区别"></a>6. java与c++的区别</h4><hr>
+<ul>
+<li>都是面向对象的语言，都支持封装、继承和多态</li>
+<li>Java不提供指针来直接访问内存，程序内存更加安全</li>
+<li>Java的类是单继承的，C++支持多重继承；虽然Java的类不可以多继承，但是接口可以多继承。</li>
+<li>Java有自动内存管理机制，不需要程序员手动释放无用内存</li>
+</ul>
+<h4 id="7-重载和重写的区别"><a href="#7-重载和重写的区别" class="headerlink" title="7. 重载和重写的区别"></a>7. 重载和重写的区别</h4><hr>
+<p><strong>重载</strong></p>
+<p>同一个类中，方法名必须相同，参数类型不同、个数不同、顺序不同，方法返回值和访问修饰符可以不同，发生在编译时。 　　</p>
+<p><strong>重写</strong></p>
+<p>发生在父子类中，方法名、参数列表必须相同，返回值范围小于等于父类，抛出的异常范围小于等于父类，访问修饰符范围大于等于父类；如果父类方法访问修饰符为private则子类就不能重写该方法。</p>
+<h4 id="8-Java面向对象编程的三大特性：封装，继承，多态"><a href="#8-Java面向对象编程的三大特性：封装，继承，多态" class="headerlink" title="8. Java面向对象编程的三大特性：封装，继承，多态"></a>8. Java面向对象编程的三大特性：封装，继承，多态</h4><hr>
+<p><strong>封装</strong></p>
+<p>封装是将一个对象的属性私有化，同时提供一些给外界访问的属性的方法(private, getter and setter)</p>
+<p><strong>继承</strong></p>
+<p>继承是将已经存在的类的定义作为基础建立新类的技术，新类的定义可以增加新的数据或新的功能，也可以使用父类的功能，但不能选择性的继承父类。</p>
+<p><strong>关于继承的三点</strong></p>
+<ol>
+<li>子类拥有父类非private的属性和方法(父类的构造方法同样不能被继承)</li>
+<li>子类可以拥有自己的属性和方法</li>
+<li>子类可以用自己的方法实现父类的方法(重写)</li>
+</ol>
+<p><strong>多态</strong></p>
+<p>多态是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。</p>
+<p>java中有两种形式可以实现多态：继承(多个子类对同一方法的重写)和接口(实现接口并覆盖接口中的同一方法).</p>
+<h4 id="9-String、StringBuffer和StringBuilder的却别是什么？String为什么是不可变的"><a href="#9-String、StringBuffer和StringBuilder的却别是什么？String为什么是不可变的" class="headerlink" title="9. String、StringBuffer和StringBuilder的却别是什么？String为什么是不可变的"></a>9. String、StringBuffer和StringBuilder的却别是什么？String为什么是不可变的</h4><hr>
+<p><strong>可变性</strong></p>
+<p>String类中使用字符数组来保存字符串，private、final、char、value[]，所以String对象是不变的。StringBuffer和StringBuilder都继承自AbstractStringBuilder类，在这个类中也是使用字符数组保存字符串，char、value[]，所以这两种对象是可变的。</p>
+<p><strong>线程安全性</strong></p>
+<ul>
+<li>String中对象是不变的，线程安全</li>
+<li>StringBuffer对方法加了同步锁或者对调用方法添加了同步锁，线程安全</li>
+<li>StringBuilder并没有对方法添加同步锁，所以非线程安全</li>
+</ul>
+<p><strong>性能</strong></p>
+<p>由于对String修改的时候都会生成一个新的String对象，然后将指针指向新的String对象；StringBuffer每次都会对对象本身进行操作，而不是生成新的对象。相同情况下StringBuilder要比StringBuffer性能提高10%~15%左右，但是线程不安全</p>
+<p><strong>使用情况</strong></p>
+<ul>
+<li>String：操作少量的数据用</li>
+<li>StringBuffer: 多线程操作字符串缓冲区下大量数据</li>
+<li>StringBuilder：单线程下操作字符串缓冲区中大量数据</li>
+</ul>
+<h4 id="10-Java中空参构造方法的作用？"><a href="#10-Java中空参构造方法的作用？" class="headerlink" title="10. Java中空参构造方法的作用？"></a>10. Java中空参构造方法的作用？</h4><hr>
+<p>Java程序在执行子类的构造方法之前，如果没有用super()来调用父类特定的构造方法，则会调用父类中“没有参数的构造方法”。因此，如果父类中只定义了有参数的构造方法，而在子类的构造方法中又没有用super()来调用父类中特定的构造方法，则编译时将发生错误，因为Java程序在父类中找不到没有参数的构造方法可供执行。解决办法是在父类里加上一个不做事且没有参数的构造方法。</p>
+<blockquote>
+<p>在java的子类中，不会继承父类的构造函数，但是在子类实例化的时候会调用父类的构造函数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        A ab=new B();  //执行到此处,结果: 1a2b</span><br><span class="line">        ab=new B();//执行到此处,结果: 1a2b2b</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class A&#123;</span><br><span class="line">    static &#123;</span><br><span class="line">        System.out.print(&quot;1&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public A() &#123;</span><br><span class="line">        System.out.print(&quot;2&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">class B extends A&#123;</span><br><span class="line">    static &#123;</span><br><span class="line">        System.out.print(&quot;a&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public B() &#123;</span><br><span class="line">        System.out.print(&quot;b&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="11-接口和抽象类的区别"><a href="#11-接口和抽象类的区别" class="headerlink" title="11. 接口和抽象类的区别"></a>11. 接口和抽象类的区别</h4><hr>
+<ul>
+<li>接口的方法默认是public，所有方法在接口中不能有实现，抽象类可以有非抽象的方法</li>
+<li>接口中的实例变量默认是final类型的，而抽象类中则不一定</li>
+<li>一个类可以实现多个接口，但最多只能实现一个抽象类</li>
+<li>一个类实现接口的话要实现接口的所有方法，而抽象类不一定</li>
+<li>接口不能用new实例化，但可以声明，但是必须引用一个实现该接口的对象；从设计层面来说，抽象是对类的抽象，是一种模板设计，接口是行为的抽象，是一种行为的规范。</li>
+</ul>
+<h4 id="12-成员变量与局部变量的区别有那些？"><a href="#12-成员变量与局部变量的区别有那些？" class="headerlink" title="12.  成员变量与局部变量的区别有那些？"></a>12.  成员变量与局部变量的区别有那些？</h4><hr>
+<ul>
+<li>从语法形式上，看成员变量是属于类的，而局部变量是在方法中定义的变量或是方法的参数；成员变量可以被public,private,static等修饰符所修饰，而局部变量不能被访问控制修饰符及static所修饰；但是，成员变量和局部变量都能被final所修饰；</li>
+<li>从变量在内存中的存储方式来看，成员变量是对象的一部分，而对象存在于堆内存，局部变量存在于栈内存</li>
+<li>从变量在内存中的生存时间上看，成员变量是对象的一部分，它随着对象的创建而存在，而局部变量随着方法的调用而自动消失。</li>
+<li>成员变量如果没有被赋初值，则会自动以类型的默认值而赋值（一种情况例外被final修饰但没有被static修饰的成员变量必须显示地赋值）；而局部变量则不会自动赋值。</li>
+</ul>
+<h4 id="13-简述线程，程序、进程的基本概念。以及他们之间关系是什么？"><a href="#13-简述线程，程序、进程的基本概念。以及他们之间关系是什么？" class="headerlink" title="13. 简述线程，程序、进程的基本概念。以及他们之间关系是什么？"></a>13. 简述线程，程序、进程的基本概念。以及他们之间关系是什么？</h4><hr>
+<p><strong>线程</strong>与进程相似，但线程是一个比进程更小的执行单位。一个进程在其执行的过程中可以产生多个线程。与进程不同的是同类的多个线程共享同一块内存空间和一组系统资源，所以系统在产生一个线程，或是在各个线程之间作切换工作时，负担要比进程小得多，也正因为如此，线程也被称为轻量级进程。</p>
+<p><strong>程序</strong>是含有指令和数据的文件，被存储在磁盘或其他的数据存储设备中，也就是说程序是静态的代码。</p>
+<p><strong>进程</strong>是程序的一次执行过程，是系统运行程序的基本单位，因此进程是动态的。系统运行一个程序即是一个进程从创建，运行到消亡的过程。简单来说，一个进程就是一个执行中的程序，它在计算机中一个指令接着一个指令地执行着，同时，每个进程还占有某些系统资源如CPU时间，内存空间，文件，文件，输入输出设备的使用权等等。换句话说，当程序在执行时，将会被操作系统载入内存中。 线程是进程划分成的更小的运行单位。++线程和进程最大的不同在于基本上各进程是独立的，而各线程则不一定++，因为同一进程中的线程极有可能会相互影响。从另一角度来说，进程属于操作系统的范畴，主要是同一段时间内，可以同时执行一个以上的程序，而线程则是在同一程序内几乎同时执行一个以上的程序段。</p>
+<h4 id="14-线程有哪些基本状态？这些状态是如何定义的"><a href="#14-线程有哪些基本状态？这些状态是如何定义的" class="headerlink" title="14. 线程有哪些基本状态？这些状态是如何定义的"></a>14. 线程有哪些基本状态？这些状态是如何定义的</h4><hr>
+<ol>
+<li>新建(new)：新创建了一个线程对象。</li>
+<li>可运行(runnable)：线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获 取cpu的使用权。</li>
+<li>运行(running)：可运行状态(runnable)的线程获得了cpu时间片（timeslice），执行程序代码。</li>
+<li>阻塞(block)：阻塞状态是指线程因为某种原因放弃了cpu使用权，也即让出了cpu timeslice，暂时停止运行。直到线程进入可运行(runnable)状态，才有 机会再次获得cpu timeslice转到运行(running)状态。阻塞的情况分三种： (一). 等待阻塞：运行(running)的线程执行o.wait()方法，JVM会把该线程放 入等待队列(waitting queue)中。 (二). 同步阻塞：运行(running)的线程在获取对象的同步锁时，若该同步锁 被别的线程占用，则JVM会把该线程放入锁池(lock pool)中。 (三). 其他阻塞: 运行(running)的线程执行Thread.sleep(long ms)或t.join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入可运行(runnable)状态。</li>
+<li>死亡(dead)：线程run()、main()方法执行结束，或者因异常退出了run()方法，则该线程结束生命周期。死亡的线程不可再次复生。<br><img src="https://camo.githubusercontent.com/5b764ff5af6204f82c7ae6237b20c41f9505aef8/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f382f392f313635316631396437633465393361333f773d38373626683d34393226663d706e6726733d313238303932" alt="image"></li>
+</ol>
+<hr>
+<p>面试问题基本都在链接中，我只不过手打了一遍增强记忆，如有侵权，私信我删QAQ</p>
+<p>参考链接<a href="https://github.com/Snailclimb/Java-Guide" target="_blank" rel="noopener">https://github.com/Snailclimb/Java-Guide</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java，面试/" rel="tag"><i class="fa fa-tag"></i> java，面试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/23/windows使用git遇到HttpRequestException/" rel="next" title="windows使用git遇到HttpRequestException">
+                <i class="fa fa-chevron-left"></i> windows使用git遇到HttpRequestException
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/08/10/Java面试-一/"
+           data-title="Java面试(一)" data-url="http://yoursite.com/2018/08/10/Java面试-一/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/huge.jpg"
+                alt="辞树" />
+            
+              <p class="site-author-name" itemprop="name">辞树</p>
+              <p class="site-description motion-element" itemprop="description">朱颜辞镜花辞树</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/coldwarm7" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:coldwarmtree@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面试问题总结"><span class="nav-number">1.</span> <span class="nav-text">面试问题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java基础"><span class="nav-number">1.0.1.</span> <span class="nav-text">java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Java中的值传递和引用传递："><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1. Java中的值传递和引用传递：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-与equals"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">2. ==与equals</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明"><span class="nav-number">1.0.1.2.1.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-hashCode与equals"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">3. hashCode与equals</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-面向对象和面向过程的区别"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">4. 面向对象和面向过程的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#面向过程"><span class="nav-number">1.0.1.4.1.</span> <span class="nav-text">面向过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象"><span class="nav-number">1.0.1.4.2.</span> <span class="nav-text">面向对象</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Java代码运行过程"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">5.Java代码运行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#采用字节码的好处"><span class="nav-number">1.0.1.5.1.</span> <span class="nav-text">采用字节码的好处</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-java与c-的区别"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">6. java与c++的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-重载和重写的区别"><span class="nav-number">1.0.1.7.</span> <span class="nav-text">7. 重载和重写的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-Java面向对象编程的三大特性：封装，继承，多态"><span class="nav-number">1.0.1.8.</span> <span class="nav-text">8. Java面向对象编程的三大特性：封装，继承，多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-String、StringBuffer和StringBuilder的却别是什么？String为什么是不可变的"><span class="nav-number">1.0.1.9.</span> <span class="nav-text">9. String、StringBuffer和StringBuilder的却别是什么？String为什么是不可变的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Java中空参构造方法的作用？"><span class="nav-number">1.0.1.10.</span> <span class="nav-text">10. Java中空参构造方法的作用？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-接口和抽象类的区别"><span class="nav-number">1.0.1.11.</span> <span class="nav-text">11. 接口和抽象类的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-成员变量与局部变量的区别有那些？"><span class="nav-number">1.0.1.12.</span> <span class="nav-text">12.  成员变量与局部变量的区别有那些？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-简述线程，程序、进程的基本概念。以及他们之间关系是什么？"><span class="nav-number">1.0.1.13.</span> <span class="nav-text">13. 简述线程，程序、进程的基本概念。以及他们之间关系是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-线程有哪些基本状态？这些状态是如何定义的"><span class="nav-number">1.0.1.14.</span> <span class="nav-text">14. 线程有哪些基本状态？这些状态是如何定义的</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">辞树</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+-->
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
