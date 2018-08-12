@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-10T04:49:49.482Z</updated>
+  <updated>2018-08-12T09:30:51.055Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>算法之快速排序</title>
+    <link href="http://yoursite.com/2018/08/12/%E7%AE%97%E6%B3%95%E4%B9%8B%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
+    <id>http://yoursite.com/2018/08/12/算法之快速排序/</id>
+    <published>2018-08-12T09:14:46.000Z</published>
+    <updated>2018-08-12T09:30:51.055Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="快速排序算法"><a href="#快速排序算法" class="headerlink" title="快速排序算法"></a>快速排序算法</h2><p><img src="https://ws1.sinaimg.cn/large/0068YiZcgy1fu71g2x4utj30rs0jnqbw.jpg" alt=""><br><a id="more"></a></p><h2 id="快排算法思想"><a href="#快排算法思想" class="headerlink" title="快排算法思想"></a>快排算法思想</h2><p>1．先从数列中取出一个数作为基准数。</p><p>2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。</p><p>3．再对左右区间重复第二步，直到各区间只有一个数。</p><h2 id="代码总结"><a href="#代码总结" class="headerlink" title="代码总结"></a>代码总结</h2><p>1．i =L; j = R; 将基准数挖出形成第一个坑a[i]。</p><p>2．j–由后向前找比它小的数，找到后挖出此数填前一个坑a[i]中。</p><p>3．i++由前向后找比它大的数，找到后也挖出此数填到前一个坑a[j]中。</p><p>4．再重复执行2，3二步，直到i==j，将基准数填入a[i]中。</p><h2 id="java代码"><a href="#java代码" class="headerlink" title="java代码"></a>java代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">       int[] arr = &#123;4,5,7,8,1,2,3,6&#125;;</span><br><span class="line">       quick_sort(arr, 0, arr.length - 1);</span><br><span class="line">       System.out.println(&quot;排序结果：&quot; + Arrays.toString(arr));</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   public static void quick_sort(int s[], int left, int right)</span><br><span class="line">   &#123;</span><br><span class="line">       if (left &lt; right)</span><br><span class="line">       &#123;</span><br><span class="line">           //Swap(s[l], s[(l + r) / 2]); //将中间的这个数和第一个数交换 参见注</span><br><span class="line">           int i = left, j = right, x = s[left];</span><br><span class="line">           while (i &lt; j)</span><br><span class="line">           &#123;</span><br><span class="line">               while(i &lt; j &amp;&amp; s[j] &gt;= x) // 从右向左找第一个小于x的数</span><br><span class="line">                   j--;</span><br><span class="line">               if(i &lt; j)</span><br><span class="line">                   s[i++] = s[j];</span><br><span class="line"></span><br><span class="line">               while(i &lt; j &amp;&amp; s[i] &lt; x) // 从左向右找第一个大于等于x的数</span><br><span class="line">                   i++;</span><br><span class="line">               if(i &lt; j)</span><br><span class="line">                   s[j--] = s[i];</span><br><span class="line">           &#125;</span><br><span class="line">           s[i] = x;</span><br><span class="line">           quick_sort(s, left, i - 1); // 递归调用</span><br><span class="line">           quick_sort(s, i + 1, right);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><hr><p>注：快排算法中的枢纽值可以是第一个最后一个或者数组中间的值，个人来讲比较喜欢第一个数当作枢纽==</p><p>参考链接<a href="https://blog.csdn.net/MoreWindows/article/details/6684558" target="_blank" rel="noopener">https://blog.csdn.net/MoreWindows/article/details/6684558</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;快速排序算法&quot;&gt;&lt;a href=&quot;#快速排序算法&quot; class=&quot;headerlink&quot; title=&quot;快速排序算法&quot;&gt;&lt;/a&gt;快速排序算法&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://ws1.sinaimg.cn/large/0068YiZcgy1fu71g2x4utj30rs0jnqbw.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="面试" scheme="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>Java面试(一)</title>
