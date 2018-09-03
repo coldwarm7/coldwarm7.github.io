@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-
-
-
-  
-
-
+<!DOCTYPE html>    
 <html class="theme-next pisces use-motion" lang="zh-Hans">
+
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -91,7 +86,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/0068YiZcgy1fu4ie0t80jj30xc0i5k60.jpg">
 <meta property="og:image" content="https://camo.githubusercontent.com/5b764ff5af6204f82c7ae6237b20c41f9505aef8/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f382f392f313635316631396437633465393361333f773d38373626683d34393226663d706e6726733d313238303932">
-<meta property="og:updated_time" content="2018-08-13T06:46:15.458Z">
+<meta property="og:updated_time" content="2018-09-03T02:14:24.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java面试(一)">
 <meta name="twitter:description" content="java基础面试问题总结">
@@ -144,15 +139,9 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
-  
-
+     
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
-
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -247,7 +236,6 @@
 
  </div>
     </header>
-
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
@@ -468,6 +456,17 @@
 <li>阻塞(block)：阻塞状态是指线程因为某种原因放弃了cpu使用权，也即让出了cpu timeslice，暂时停止运行。直到线程进入可运行(runnable)状态，才有 机会再次获得cpu timeslice转到运行(running)状态。阻塞的情况分三种： (一). 等待阻塞：运行(running)的线程执行o.wait()方法，JVM会把该线程放 入等待队列(waitting queue)中。 (二). 同步阻塞：运行(running)的线程在获取对象的同步锁时，若该同步锁 被别的线程占用，则JVM会把该线程放入锁池(lock pool)中。 (三). 其他阻塞: 运行(running)的线程执行Thread.sleep(long ms)或t.join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入可运行(runnable)状态。</li>
 <li>死亡(dead)：线程run()、main()方法执行结束，或者因异常退出了run()方法，则该线程结束生命周期。死亡的线程不可再次复生。<br><img src="https://camo.githubusercontent.com/5b764ff5af6204f82c7ae6237b20c41f9505aef8/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f382f392f313635316631396437633465393361333f773d38373626683d34393226663d706e6726733d313238303932" alt="image"></li>
 </ol>
+<h4 id="15-sleep-方法和wait-方法简单对比"><a href="#15-sleep-方法和wait-方法简单对比" class="headerlink" title="15. sleep()方法和wait()方法简单对比"></a>15. sleep()方法和wait()方法简单对比</h4><hr>
+<ul>
+<li>两者最主要的区别在于：sleep方法没有释放锁，而wait方法释放了锁 。</li>
+<li>两者都可以暂停线程的执行。</li>
+<li>Wait通常被用于线程间交互/通信，sleep通常被用于暂停执行。</li>
+<li>wait()方法是Object类中的方法，被调用后，线程不会自动苏醒，需要别的线程调用同一个对象上的notify()或者nofifyAl()方法。sleep()方法是线程类的方法，执行完成后，线程会自动苏醒。</li>
+</ul>
+<h4 id="16-为什么我们调用start-方法时会执行run-方法，为什么我们不能直接调用run-方法？"><a href="#16-为什么我们调用start-方法时会执行run-方法，为什么我们不能直接调用run-方法？" class="headerlink" title="16. 为什么我们调用start()方法时会执行run()方法，为什么我们不能直接调用run()方法？"></a>16. 为什么我们调用start()方法时会执行run()方法，为什么我们不能直接调用run()方法？</h4><p>new一个Thread，线程进入了新建状态;调用start()方法，会启动一个线程并使线程进入了就绪状态，当分配到时间片后就可以开始运行了。  start()会执行线程的相应准备工作，然后自动执行run()方法的内容，这是真正的多线程工作。 而直接执行run()方法，会把run方法当成一个mian线程下的普通方法去执行，并不会在某个线程中执行它，所以这并不是多线程工作。</p>
+<p><strong>总结： 调用start方法方可启动线程并使线程进入就绪状态，而run方法只是thread的一个普通方法调用，还是在主线程里执行。</strong></p>
+<h4 id="17-什么是线程安全？"><a href="#17-什么是线程安全？" class="headerlink" title="17. 什么是线程安全？"></a>17. 什么是线程安全？</h4><hr>
+<p>当多个线程访问某个方法时，不管你通过怎样的调用方式或者说这些线程如何交替的执行，我们在主程序中不需要去做任何的同步，这个类的结果行为都是我们设想的正确行为，那么我们就可以说这个类时线程安全的。</p>
 <hr>
 <p>面试问题基本都在链接中，我只不过手打了一遍增强记忆，如有侵权，私信我删QAQ</p>
 <p>参考链接<a href="https://github.com/Snailclimb/Java-Guide" target="_blank" rel="noopener">https://github.com/Snailclimb/Java-Guide</a></p>
@@ -539,8 +538,7 @@
           </div>
           
 
-
-          
+ 
 
   
     <div class="comments" id="comments">
@@ -552,8 +550,7 @@
 
 
         </div>
-        
-          
+         
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -677,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java基础面试问题总结"><span class="nav-number">1.</span> <span class="nav-text">java基础面试问题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Java中的值传递和引用传递："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1. Java中的值传递和引用传递：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-与equals"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2. ==与equals</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明"><span class="nav-number">1.0.0.2.1.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-hashCode与equals"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3. hashCode与equals</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-面向对象和面向过程的区别"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">4. 面向对象和面向过程的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#面向过程"><span class="nav-number">1.0.0.4.1.</span> <span class="nav-text">面向过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象"><span class="nav-number">1.0.0.4.2.</span> <span class="nav-text">面向对象</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Java代码运行过程"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">5.Java代码运行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#采用字节码的好处"><span class="nav-number">1.0.0.5.1.</span> <span class="nav-text">采用字节码的好处</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-java与c-的区别"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">6. java与c++的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-重载和重写的区别"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">7. 重载和重写的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-Java面向对象编程的三大特性：封装，继承，多态"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">8. Java面向对象编程的三大特性：封装，继承，多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-String、StringBuffer和StringBuilder的却别是什么？String为什么是不可变的"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">9. String、StringBuffer和StringBuilder的却别是什么？String为什么是不可变的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Java中空参构造方法的作用？"><span class="nav-number">1.0.0.10.</span> <span class="nav-text">10. Java中空参构造方法的作用？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-接口和抽象类的区别"><span class="nav-number">1.0.0.11.</span> <span class="nav-text">11. 接口和抽象类的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-成员变量与局部变量的区别有那些？"><span class="nav-number">1.0.0.12.</span> <span class="nav-text">12.  成员变量与局部变量的区别有那些？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-简述线程，程序、进程的基本概念。以及他们之间关系是什么？"><span class="nav-number">1.0.0.13.</span> <span class="nav-text">13. 简述线程，程序、进程的基本概念。以及他们之间关系是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-线程有哪些基本状态？这些状态是如何定义的"><span class="nav-number">1.0.0.14.</span> <span class="nav-text">14. 线程有哪些基本状态？这些状态是如何定义的</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java基础面试问题总结"><span class="nav-number">1.</span> <span class="nav-text">java基础面试问题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Java中的值传递和引用传递："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1. Java中的值传递和引用传递：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-与equals"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2. ==与equals</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明"><span class="nav-number">1.0.0.2.1.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-hashCode与equals"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3. hashCode与equals</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-面向对象和面向过程的区别"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">4. 面向对象和面向过程的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#面向过程"><span class="nav-number">1.0.0.4.1.</span> <span class="nav-text">面向过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象"><span class="nav-number">1.0.0.4.2.</span> <span class="nav-text">面向对象</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Java代码运行过程"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">5.Java代码运行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#采用字节码的好处"><span class="nav-number">1.0.0.5.1.</span> <span class="nav-text">采用字节码的好处</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-java与c-的区别"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">6. java与c++的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-重载和重写的区别"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">7. 重载和重写的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-Java面向对象编程的三大特性：封装，继承，多态"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">8. Java面向对象编程的三大特性：封装，继承，多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-String、StringBuffer和StringBuilder的却别是什么？String为什么是不可变的"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">9. String、StringBuffer和StringBuilder的却别是什么？String为什么是不可变的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Java中空参构造方法的作用？"><span class="nav-number">1.0.0.10.</span> <span class="nav-text">10. Java中空参构造方法的作用？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-接口和抽象类的区别"><span class="nav-number">1.0.0.11.</span> <span class="nav-text">11. 接口和抽象类的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-成员变量与局部变量的区别有那些？"><span class="nav-number">1.0.0.12.</span> <span class="nav-text">12.  成员变量与局部变量的区别有那些？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-简述线程，程序、进程的基本概念。以及他们之间关系是什么？"><span class="nav-number">1.0.0.13.</span> <span class="nav-text">13. 简述线程，程序、进程的基本概念。以及他们之间关系是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-线程有哪些基本状态？这些状态是如何定义的"><span class="nav-number">1.0.0.14.</span> <span class="nav-text">14. 线程有哪些基本状态？这些状态是如何定义的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-sleep-方法和wait-方法简单对比"><span class="nav-number">1.0.0.15.</span> <span class="nav-text">15. sleep()方法和wait()方法简单对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-为什么我们调用start-方法时会执行run-方法，为什么我们不能直接调用run-方法？"><span class="nav-number">1.0.0.16.</span> <span class="nav-text">16. 为什么我们调用start()方法时会执行run()方法，为什么我们不能直接调用run()方法？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-什么是线程安全？"><span class="nav-number">1.0.0.17.</span> <span class="nav-text">17. 什么是线程安全？</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -690,11 +687,9 @@
     </div>
   </aside>
 
-
-        
+ 
       </div>
     </main>
-
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
@@ -719,30 +714,22 @@
 
 
 
--->
-        
+--> 
 
 
 
 
 
 
-
-        
+ 
       </div>
     </footer>
-
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i> 
+    </div>
+     
   </div>
-
   
 
 <script type="text/javascript">
@@ -809,17 +796,13 @@
     <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
-
-  
+ 
 
 
   <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
 
-
-
-  
   
 
 
@@ -827,22 +810,16 @@
 
   <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
 
-
-
-  
+ 
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
 
-
-
-  
+ 
 
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
-
-
-  
+ 
 
 
   
@@ -885,27 +862,19 @@
 
 
 
+ 
 
+
+
+
+ 
+ 
+ 
   
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
+ 
+ 
+ 
 
 </body>
+
 </html>
