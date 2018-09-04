@@ -63,7 +63,7 @@
 
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="面试,java,jvm," />
 
 
 
@@ -76,20 +76,21 @@
 
 
 
-<meta name="description" content="win10使用git进行git push时出现Fatal: HttpRequestException encountered并且需要重新输入用户名和密码的解决方案">
-<meta name="keywords" content="git">
+<meta name="description" content="类加载过程、类加载器、双亲委派模型">
+<meta name="keywords" content="面试,java,jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="windows使用git遇到HttpRequestException">
-<meta property="og:url" content="http://yoursite.com/2018/07/23/windows使用git遇到HttpRequestException/index.html">
+<meta property="og:title" content="JVM-虚拟机类加载机制">
+<meta property="og:url" content="http://yoursite.com/2018/09/04/JVM-虚拟机类加载机制/index.html">
 <meta property="og:site_name" content="coldwarm7">
-<meta property="og:description" content="win10使用git进行git push时出现Fatal: HttpRequestException encountered并且需要重新输入用户名和密码的解决方案">
+<meta property="og:description" content="类加载过程、类加载器、双亲委派模型">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/0068YiZcgy1ftjqev6e56j30sq08s752.jpg">
-<meta property="og:updated_time" content="2018-08-13T06:48:31.957Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/0068YiZcgy1fuxm9e8785j30je09aaau.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/0068YiZcgy1fuxm25hmiej30ip09iaes.jpg">
+<meta property="og:updated_time" content="2018-09-04T09:07:55.658Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="windows使用git遇到HttpRequestException">
-<meta name="twitter:description" content="win10使用git进行git push时出现Fatal: HttpRequestException encountered并且需要重新输入用户名和密码的解决方案">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/0068YiZcgy1ftjqev6e56j30sq08s752.jpg">
+<meta name="twitter:title" content="JVM-虚拟机类加载机制">
+<meta name="twitter:description" content="类加载过程、类加载器、双亲委派模型">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/0068YiZcgy1fuxm9e8785j30je09aaau.jpg">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/23/windows使用git遇到HttpRequestException/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/04/JVM-虚拟机类加载机制/"/>
 
 
 
 
 
-  <title>windows使用git遇到HttpRequestException | coldwarm7</title>
+  <title>JVM-虚拟机类加载机制 | coldwarm7</title>
   
 
 
@@ -255,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/windows使用git遇到HttpRequestException/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/JVM-虚拟机类加载机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="辞树">
@@ -272,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">windows使用git遇到HttpRequestException</h1>
+          <h1 class="post-title" itemprop="name headline">JVM-虚拟机类加载机制</h1>
         
 
         <div class="post-meta">
@@ -284,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T13:01:50+08:00">
-                2018-07-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T15:43:46+08:00">
+                2018-09-04
               </time>
             
 
@@ -307,8 +308,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/遇到的问题/" itemprop="url" rel="index">
-                    <span itemprop="name">遇到的问题</span>
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
                   </a>
                 </span>
 
@@ -344,8 +345,22 @@
       
 
       
-        <p><center>win10使用git进行<code>git push</code>时出现<code>Fatal: HttpRequestException encountered</code>并且需要重新输入用户名和密码的解决方案</center><br><a id="more"></a></p>
-<p>这是因为github<a href="https://githubengineering.com/crypto-removal-notice/" target="_blank" rel="noopener">禁用了弱加密</a>,可以下载<a href="https://github.com/Microsoft/Git-Credential-Manager-for-Windows/releases/tag/v1.16.2" target="_blank" rel="noopener">最新版本的Git凭据管理器</a>来解决这个问题。<br><img src="https://ws1.sinaimg.cn/large/0068YiZcgy1ftjqev6e56j30sq08s752.jpg" alt=""></p>
+        <p><img src="https://ws1.sinaimg.cn/large/0068YiZcgy1fuxm9e8785j30je09aaau.jpg" alt=""></p>
+<center><strong>类加载过程、类加载器、双亲委派模型</strong></center><br><a id="more"></a><br>### 1. 类加载机制<br>—<br>#### 1.1 虚拟机类加载机制的概念<br>虚拟机把描述类的数据从class文件加载到内存，并对数据进行校验、转换解析和初始化。最终形成可以被虚拟机最直接使用的java类型的过程就是虚拟机的类加载机制。<br><br>#### 1.2 Java语言的动态加载和动态连接<br>Java语言中类型的加载连接以及初始化过程都是在程序运行期间完成的，提高了java应用的灵活性。<br><br>### 2. 类加载的时机<br>—<br><strong>虚拟机严格规定了五种情况必须对类立即进行“初始化”:</strong><br><br>- 使用new关键字实例化对象的时候，读取或设置一个类的静态字段的时候，已经调用一个类的静态方法的时候。<br>- 使用java.lang.reflect包的方法对类进行反射调用的时候，如果类没有初始化，则需要先出发初始化。<br>- 当初始化一个类的时候，如果发现他的父类没有初始化就会先初始化他的父类。<br>- 当虚拟机启动的时候，用户需要指定一个执行的主类（main()方法所在的类），虚拟机会先初始化这个类。<br>- 使用JDK1.7动态语言支持的时候的一些情况<br><br>### 3. 类加载过程<br>—<br>类加载过程有五个阶段，分别是：<strong>加载、验证、准备、解析、初始化</strong><br><br>#### 3.1 加载<br><strong>加载过程基本由三个基本动作组成：</strong><br><br>- 通过类型的完全限定名，产生一个代表该类型的二进制数据流(zip包中获取、网络中获取如applet，运行时计算生成例如动态代理技术，由其他文件生成例如JSP)<br>- 解析这个二进制数据流为方法区内的运行时的数据结构<br>- 创建一个表示该类型的java.lang.Class类的实例，作为方法区这个类的各种数据的访问入口<br><br>&gt; 非数组类加载阶段既可以使用系统提供的类加载器来完成，也可以由用户自定义的类加载器去完成。（即重写一个类加载器的loadClass（）方法）<br><br>#### 3.2 验证<br><strong>为了确保Class文件的字节流中包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全。</strong><br><br>验证分为四个阶段的校验：<strong>文件格式，元数据，字节码，符号引用</strong><br><br><strong>文件格式验证：</strong><br><br>验证字节流是否符合Class文件格式的规范，并且能被当前版本的虚拟机处理。该验证阶段的主要目的是保证输入的字节流能正确地解析并存储于方法区之内。这个阶段验证是基于二进制字节流进行的，只有通过这个阶段的验证后，字节流才会进入内存的方法区进行存储，所以后面的3个阶段的全部是基于方法区的存储结构进行的，不会再直接操作字节流。<br><br><strong>元数据验证：</strong><br><br>该阶段对字节码描述的信息进行语义分析，以保证其描述的信息符合Java语言规范的要求，目的是保证不存在不符合Java语言规范的元数据信息。<br><br><strong>字节码验证：</strong><br><br>该阶段主要工作时进行数据流和控制流分析，保证被校验类的方法在运行时不会做出危害虚拟机安全的行为(<em>并非经过验证就绝对安全</em>)。 例如，保证跳转指令不会跳转到方法体以外的字节码指令上、保证方法体中的类型转换是有效的等等。<br><br><strong>符号引用验证：</strong><br><br>校验发生在虚拟机将符号引用转化为直接引用的时候，在解析阶段中发生，为确保解析动作可以正常执行。<br><br>验证的内容：<br><br>- 符号引用中通过字符串描述的全限定名是否能找到对应的类；<br>- 在指定类中是否存在符号方法的字段描述及简单名称所描述的方法和字段；<br>- 符号引用中的类、字段和方法的访问性（private、protected、public、default）是否可被当前类访问。<br><br>#### 3.3 准备<br><strong>准备阶段是正式为类变量分配内存并设置类变量初始值的阶段，这些变量所使用的内存都在方法区中进行分配</strong>(<em>注：此时进行内存分配的只是类变量，也就是被static修饰的变量，而不包括实例变量，实例变量将会在对象实例化时随着对象一起分配在java堆中</em>)。<br><br><strong>初始值通常为数据类型的零值，例如：</strong><br><br><code>public static int value = 123;</code><br><br>在准备阶段之后的初始值为int的零值，也就是0，而不是123；<br><br>&gt;这里需要注意的是boolean的初始值为false<br><br>#### 3.4 解析<br><br><strong>解析阶段就是虚拟机将常量池内的符号引用替换为直接引用的过程。</strong><br><br><strong>符号引用(Symbolic References)</strong>： 符号引用以一组符号来描述所引用的目标，符号可以是符合约定的任何形式的字面量，符号引用与虚拟机实现的内存布局无关，引用的目标并不一定已经加载到内存中。<br><br><strong>直接引用（Direct References）:</strong> 直接引用可以是直接指向目标的指针、相对偏移量或是一个能间接定位到目标的句柄。直接引用与虚拟机实现的内存布局相关，引用的目标必定已经在内存中存在。<br><br><strong>需要注意的是：</strong><br><br>- 虚拟机规范没有规定解析阶段发生的具体时间，虚拟机实现可以根据需要来判断到底是在类被加载时解析还是等到一个符号引用将要被使用前才去解析。<br>- 虚拟机可以实现对第一次解析结果进行缓存，避免解析动作的重复进行<br>- 解析动作主要针对类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符7类符号引用进行<br><br>#### 3.5 初始化<br><br>类初始化阶段是类加载的最后一步，前面的类加载过程中，除了在加载阶段用户应用程序可以通过自定义类加载器参与之外，其余动作完全由虚拟机主导和控制。到了初始化阶段，才真正开始执行类中定义的java程序代码（或者说是字节码）。<br><br>### 4. 类加载器<br>—<br><br>#### 4.1 类与类加载器<br><br>对于任意一个类，都需要由加载它的类加载器和这个类本身一同确立其在Java虚拟机中的唯一性。如果两个类来源于同一个Class文件，只要加载它们的类加载器不同，那么这两个类就必定不相等。<br><br>#### 4.2 类加载器<br><br>对于java开发人员来讲，最常用的为下面三种系统提供的类加载器：<br><br><strong>启动类加载器（Bootstrap ClassLoader）：</strong><br><br>这个类加载器负责将存放在\lib目录中的，或者被-Xbootclasspath参数所指定的路径中的，并且是虚拟机识别的（仅按照文件名识别，如rt.jar，名字不符合的类库即使放在lib目录中也不会被加载）类库加载到虚拟机内存中。<br><br><strong>扩展类加载器（Extension ClassLoader）：</strong><br><br>这个加载器由sun.misc.Launcher$ExtClassLoader实现，它负责加载\lib\ext目录中的，或者被java.ext.dirs系统变量所指定的路径中的所有类库，开发者可以直接使用扩展类加载器。<br><br><strong>应用程序类加载器（Application ClassLoader）：</strong><br><br>这个类加载器由sun.misc.Launcher$AppClassLoader实现。由于这个类加载器是ClassLoader中的getSystemClassLoader()方法的返回值，所以一般也称它为系统类加载器。它负责加载用户类路径（ClassPath）上所指定的类库，开发者可以直接使用这个类加载器，如果应用程序中没有自定义过自己的类加载器，一般情况下这个就是程序中默认的类加载器。<br><br>#### 双亲委派模型<br><strong>双亲委派模型（Pattern Delegation Model）</strong>,要求除了顶层的启动类加载器外，其余的类加载器都应该有自己的父类加载器。这里父子关系通常是子类通过组合关系而不是继承关系来复用父加载器的代码。<br><br><center><img src="https://ws1.sinaimg.cn/large/0068YiZcgy1fuxm25hmiej30ip09iaes.jpg" alt="双亲委派模型"></center>
+
+<p><strong>双亲委派模型的工作过程：</strong></p>
+<p>如果一个类加载器收到了类加载的请求，先把这个请求委派给父类加载器去完成（所以所有的加载请求最终都应该传送到顶层的启动类加载器中），只有当父加载器反馈自己无法完成加载请求时，子加载器才会尝试自己去加载。</p>
+<p><strong>双亲委派模型的意义：</strong></p>
+<p>比如两个类A和类B都要加载System类：</p>
+<ul>
+<li>如果不用委托而是自己加载自己的，那么类A就会加载一份System字节码，然后类B又会加载一份System字节码，这样内存中就出现了两份System字节码。</li>
+<li>如果使用委托机制，会递归的向父类查找，也就是首选用Bootstrap尝试加载，如果找不到再向下。这里的System就能在Bootstrap中找到然后加载，如果此时类B也要加载System，也从Bootstrap开始，此时Bootstrap发现已经加载过了System那么直接返回内存中的System即可而不需要重新加载，这样内存中就只有一份System的字节码了。</li>
+<li>java类随着它的类加载器一起具备了一种带有优先级的层次关系。</li>
+</ul>
+<hr>
+<blockquote>
+<p>参考《深入理解虚拟机》第二版</p>
+</blockquote>
 
       
     </div>
@@ -363,7 +378,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+            <a href="/tags/面试/" rel="tag"><i class="fa fa-tag"></i> 面试</a>
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/jvm/" rel="tag"><i class="fa fa-tag"></i> jvm</a>
           
         </div>
       
@@ -376,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/30/mongodb无法安装的问题解决/" rel="next" title="mongodb无法安装的问题解决">
-                <i class="fa fa-chevron-left"></i> mongodb无法安装的问题解决
+              <a href="/2018/08/12/Java面试-算法/" rel="next" title="Java面试-算法">
+                <i class="fa fa-chevron-left"></i> Java面试-算法
               </a>
             
           </div>
@@ -385,10 +404,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/10/Java面试-一/" rel="prev" title="Java面试(一)">
-                Java面试(一) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
