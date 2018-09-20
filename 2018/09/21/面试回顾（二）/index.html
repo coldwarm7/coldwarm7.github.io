@@ -84,7 +84,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/0068YiZcgy1fu71gciusmj30xc0kmkah.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/0068YiZcgy1fvgg4mepscj30mo0ataeg.jpg">
-<meta property="og:updated_time" content="2018-09-20T16:12:30.912Z">
+<meta property="og:updated_time" content="2018-09-20T16:31:57.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试回顾（二）">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/0068YiZcgy1fu71gciusmj30xc0kmkah.jpg">
@@ -429,6 +429,18 @@ sudo kill
 <blockquote>
 <p>关于敏捷开发的理解推荐：<a href="https://juejin.im/post/5abc5ecc6fb9a028c14a885d" target="_blank" rel="noopener">https://juejin.im/post/5abc5ecc6fb9a028c14a885d</a></p>
 </blockquote>
+<h3 id="17-如何理解Restful"><a href="#17-如何理解Restful" class="headerlink" title="17.如何理解Restful"></a>17.如何理解Restful</h3><p><strong>Representation State Transfer</strong> : 直译为表现层状态转移.</p>
+<p>是通过HTTP协议来描述Web API的约定风格.</p>
+<p>服务端面向Web的API需要通过HTTP协议来表达.了解一下REST的起源可以知道其作者是HTTP协议的制定者,所以HTTP协议的语义元素天然符合REST的约束要求.</p>
+<p>但RESTful并不是强制的,Web API不必遵循RESTful,但是遵循RESTful可以令API表达的语义更简单清晰统一,在语义全部抽象为转台转移后,分布式系统的架构关注点(维护状态一致)也会更明确.</p>
+<p><strong>初步理解并运用restful</strong></p>
+<ul>
+<li>使用METHOD (POST,DELETE,GET,PUT) 等动词表示増删查改四种操作.</li>
+<li>使用URI(通常是其子集URL)来表示对象或资源.</li>
+<li>使用queryString表示查询输入</li>
+<li>使用body表示更新和保存的状态输入</li>
+<li>使用HEAD进行扩展</li>
+</ul>
 
       
     </div>
@@ -629,7 +641,7 @@ sudo kill
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-mysql和postgrsql区别"><span class="nav-number">1.</span> <span class="nav-text">3. mysql和postgrsql区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-jpa和mybatis区别，适用于什么情况"><span class="nav-number">2.</span> <span class="nav-text">4. jpa和mybatis区别，适用于什么情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-ArrayList和LinkedList区别"><span class="nav-number">3.</span> <span class="nav-text">9. ArrayList和LinkedList区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-SpringBoot和Spring-mvc区别"><span class="nav-number">4.</span> <span class="nav-text">10. SpringBoot和Spring mvc区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-http和https的常用端口号"><span class="nav-number">5.</span> <span class="nav-text">12. http和https的常用端口号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-查看进程"><span class="nav-number">6.</span> <span class="nav-text">13. 查看进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-sql的是怎么实现预编译防止sql注入攻击"><span class="nav-number">7.</span> <span class="nav-text">14. sql的是怎么实现预编译防止sql注入攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-如何理解微服务"><span class="nav-number">8.</span> <span class="nav-text">15. 如何理解微服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-如何理解敏捷编程"><span class="nav-number">9.</span> <span class="nav-text">16. 如何理解敏捷编程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-mysql和postgrsql区别"><span class="nav-number">1.</span> <span class="nav-text">3. mysql和postgrsql区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-jpa和mybatis区别，适用于什么情况"><span class="nav-number">2.</span> <span class="nav-text">4. jpa和mybatis区别，适用于什么情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-ArrayList和LinkedList区别"><span class="nav-number">3.</span> <span class="nav-text">9. ArrayList和LinkedList区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-SpringBoot和Spring-mvc区别"><span class="nav-number">4.</span> <span class="nav-text">10. SpringBoot和Spring mvc区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-http和https的常用端口号"><span class="nav-number">5.</span> <span class="nav-text">12. http和https的常用端口号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-查看进程"><span class="nav-number">6.</span> <span class="nav-text">13. 查看进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-sql的是怎么实现预编译防止sql注入攻击"><span class="nav-number">7.</span> <span class="nav-text">14. sql的是怎么实现预编译防止sql注入攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-如何理解微服务"><span class="nav-number">8.</span> <span class="nav-text">15. 如何理解微服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-如何理解敏捷编程"><span class="nav-number">9.</span> <span class="nav-text">16. 如何理解敏捷编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-如何理解Restful"><span class="nav-number">10.</span> <span class="nav-text">17.如何理解Restful</span></a></li></ol></div>
             
 
           </div>
