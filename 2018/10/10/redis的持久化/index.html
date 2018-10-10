@@ -85,7 +85,7 @@
 <meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-10-10/38280048.jpg">
 <meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-10-10/13435098.jpg">
 <meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-10-10/47010611.jpg">
-<meta property="og:updated_time" content="2018-10-10T08:45:53.373Z">
+<meta property="og:updated_time" content="2018-10-10T08:50:34.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis的持久化">
 <meta name="twitter:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-10-10/38280048.jpg">
@@ -346,7 +346,7 @@
         <center><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-10-10/38280048.jpg" alt=""></center>
 
 <a id="more"></a>
-<h1 id="RDB-Redis-DataBase"><a href="#RDB-Redis-DataBase" class="headerlink" title="RDB(Redis DataBase)"></a>RDB(Redis DataBase)</h1><p>Redis会单独创建（fork）一个子进程来进行持久化，会先将数据写入到<br>一个临时文件中，待持久化过程都结束了，再用这个临时文件替换上次持久化好的文件。<br>整个过程中，主进程是不进行任何IO操作的，这就确保了极高的性能<br>如果需要进行大规模数据的恢复，且对于数据恢复的完整性不是非常敏感，那RDB方<br>式要比AOF方式更加的高效。RDB的缺点是最后一次持久化后的数据可能丢失。</p>
+<h1 id="RDB-Redis-DataBase"><a href="#RDB-Redis-DataBase" class="headerlink" title="RDB(Redis DataBase)"></a>RDB(Redis DataBase)</h1><p>Redis会单独创建（fork）一个子进程来进行持久化，会先将数据写入到一个临时文件中，待持久化过程都结束了，再用这个临时文件替换上次持久化好的文件。整个过程中，主进程是不进行任何IO操作的，这就确保了极高的性能如果需要进行大规模数据的恢复，且对于数据恢复的完整性不是非常敏感，那RDB方式要比AOF方式更加的高效。RDB的缺点是最后一次持久化后的数据可能丢失。</p>
 <blockquote>
 <p>RDB最后一次持久化数据丢失的情况：例如每隔两分钟进行一次数据的持久化，在1：59s的时候因为外部原因（关机/停电。。）那么这1：59s内对数据的修改就会丢失，没有来得及进行持久化</p>
 </blockquote>
@@ -373,7 +373,7 @@
 <p><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-10-10/13435098.jpg" alt=""></p>
 <h1 id="AOF（Append-Only-File）"><a href="#AOF（Append-Only-File）" class="headerlink" title="AOF（Append Only File）"></a>AOF（Append Only File）</h1><p>以日志的形式来记录每个写操作，将Redis执行过的所有<strong>写指令</strong>记录下来(读操作不记录)，<br>只许追加文件但不可以改写文件，redis启动之初会读取该文件重新构建数据，换言之，redis重启的话就根据日志文件的内容将写指令从前到后执行一次以完成数据的恢复工作，默认的文件名是appendonly.aof。</p>
 <blockquote>
-<p>rdb文件和aof文件可以共存</p>
+<p>rbd文件和aof文件可以共存</p>
 </blockquote>
 <h2 id="AOF的启动-修复-恢复"><a href="#AOF的启动-修复-恢复" class="headerlink" title="AOF的启动/修复/恢复"></a>AOF的启动/修复/恢复</h2><ul>
 <li><strong>启动：</strong> 修改默认的<code>appendonly no</code>，改为yes</li>
