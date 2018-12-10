@@ -1,0 +1,772 @@
+<!DOCTYPE html>    
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tree_big.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tree_small.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="git," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="coldwarm7" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="git push远程新建分支以及合并commit提交">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git push远程新建分支以及合并commit提交">
+<meta property="og:url" content="http://yoursite.com/2018/12/10/git-push远程新建分支以及合并commit提交/index.html">
+<meta property="og:site_name" content="coldwarm7">
+<meta property="og:description" content="git push远程新建分支以及合并commit提交">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-10T13:36:12.258Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git push远程新建分支以及合并commit提交">
+<meta name="twitter:description" content="git push远程新建分支以及合并commit提交">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/10/git-push远程新建分支以及合并commit提交/"/>
+
+
+
+
+
+  <title>git push远程新建分支以及合并commit提交 | coldwarm7</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+     
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">coldwarm7</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">天行健，君子以自强不息</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/10/git-push远程新建分支以及合并commit提交/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="辞树">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/huge.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="coldwarm7">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">git push远程新建分支以及合并commit提交</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T21:33:33+08:00">
+                2018-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center>git push远程新建分支以及合并commit提交</center>
+
+<a id="more"></a>
+<h1 id="将代码提交到远程仓库的新分支上"><a href="#将代码提交到远程仓库的新分支上" class="headerlink" title="将代码提交到远程仓库的新分支上"></a>将代码提交到远程仓库的新分支上</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin local_branch:remote_branch</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个操作，local_branch必须为你本地存在的分支，remote_branch为远程分支，如果remote_branch不存在则会自动创建分支。类似，<figure class="highlight plain"><figcaption><span>push origin :remote_branch```，local_branch留空的话则是删除远程remote_branch分支</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>git push origin master:test<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上述命令就是代码是在本地master分支上，push的时候push到test分支，如果远程仓库没有test分支，那么会自动新建test分支</span><br><span class="line"></span><br><span class="line"># 将多次commit合并为一个</span><br><span class="line"></span><br><span class="line">1. 通过```git log```查看commit提交历史</span><br><span class="line">2. 这里假设要合并四个commit为一个，执行命令</span><br></pre></td></tr></table></figure></p>
+<p>git rebase -i HEAD~4<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. 将其中三次的pick改为squash实现压缩</span><br></pre></td></tr></table></figure></p>
+<p>pick 5e187c7dbe8    add center style indent<br>pick 6d577eb3440    add center style<br>pick f9b9508a3ab    add center style<br>pick 111ab9cc261    update templates</p>
+<h1 id="Rebase-150a643-2fad1ae-onto-150a643"><a href="#Rebase-150a643-2fad1ae-onto-150a643" class="headerlink" title="Rebase 150a643..2fad1ae onto 150a643"></a>Rebase 150a643..2fad1ae onto 150a643</h1><p>#<br>pick 5e187c7dbe8    add center style indent<br>squash 6d577eb3440  add center style<br>squash f9b9508a3ab  add center style<br>squash 111ab9cc261  update templates</p>
+<h1 id="Rebase-150a643-2fad1ae-onto-150a643-1"><a href="#Rebase-150a643-2fad1ae-onto-150a643-1" class="headerlink" title="Rebase 150a643..2fad1ae onto 150a643"></a>Rebase 150a643..2fad1ae onto 150a643</h1><p>#</p>
+<h1 id="Commands"><a href="#Commands" class="headerlink" title="Commands:"></a>Commands:</h1><h1 id="p-pick-use-commit"><a href="#p-pick-use-commit" class="headerlink" title="p, pick = use commit"></a>p, pick = use commit</h1><h1 id="r-reword-use-commit-but-edit-the-commit-message"><a href="#r-reword-use-commit-but-edit-the-commit-message" class="headerlink" title="r, reword = use commit, but edit the commit message"></a>r, reword = use commit, but edit the commit message</h1><h1 id="e-edit-use-commit-but-stop-for-amending"><a href="#e-edit-use-commit-but-stop-for-amending" class="headerlink" title="e, edit = use commit, but stop for amending"></a>e, edit = use commit, but stop for amending</h1><h1 id="s-squash-use-commit-but-meld-into-previous-commit"><a href="#s-squash-use-commit-but-meld-into-previous-commit" class="headerlink" title="s, squash = use commit, but meld into previous commit"></a>s, squash = use commit, but meld into previous commit</h1><h1 id="f-fixup-like-“squash”-but-discard-this-commit’s-log-message"><a href="#f-fixup-like-“squash”-but-discard-this-commit’s-log-message" class="headerlink" title="f, fixup = like “squash”, but discard this commit’s log message"></a>f, fixup = like “squash”, but discard this commit’s log message</h1><h1 id="x-exec-run-command-the-rest-of-the-line-using-shell"><a href="#x-exec-run-command-the-rest-of-the-line-using-shell" class="headerlink" title="x, exec = run command (the rest of the line) using shell"></a>x, exec = run command (the rest of the line) using shell</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">保存退出，git会压缩提交历史，如果有冲突，需要修改，修改的时候要注意，保留最新的历史，不然我们的修改就丢弃了。修改以后要记得敲下面的命令：</span><br></pre></td></tr></table></figure>
+<p>git add .<br>git rebase –continue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果放弃压缩的话执行```git rebase --abort```即可。</span><br><span class="line"></span><br><span class="line">如果没有冲突，会显示：</span><br></pre></td></tr></table></figure></p>
+<h1 id="This-is-a-combination-of-4-commits"><a href="#This-is-a-combination-of-4-commits" class="headerlink" title="This is a combination of 4 commits."></a>This is a combination of 4 commits.</h1><h1 id="The-first-commit’s-message-is"><a href="#The-first-commit’s-message-is" class="headerlink" title="The first commit’s message is:"></a>The first commit’s message is:</h1><p>add center style indent</p>
+<h1 id="The-2nd-commit’s-message-is"><a href="#The-2nd-commit’s-message-is" class="headerlink" title="The 2nd commit’s message is:"></a>The 2nd commit’s message is:</h1><p>add center style</p>
+<h1 id="The-3rd-commit’s-message-is"><a href="#The-3rd-commit’s-message-is" class="headerlink" title="The 3rd commit’s message is:"></a>The 3rd commit’s message is:</h1><p>add center style</p>
+<h1 id="The-4th-commit’s-message-is"><a href="#The-4th-commit’s-message-is" class="headerlink" title="The 4th commit’s message is:"></a>The 4th commit’s message is:</h1><p>update templates</p>
+<h1 id="Please-enter-the-commit-message-for-your-changes-Lines-starting"><a href="#Please-enter-the-commit-message-for-your-changes-Lines-starting" class="headerlink" title="Please enter the commit message for your changes. Lines starting"></a>Please enter the commit message for your changes. Lines starting</h1><h1 id="with-‘-’-will-be-ignored-and-an-empty-message-aborts-the-commit"><a href="#with-‘-’-will-be-ignored-and-an-empty-message-aborts-the-commit" class="headerlink" title="with ‘#’ will be ignored, and an empty message aborts the commit."></a>with ‘#’ will be ignored, and an empty message aborts the commit.</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">直接保存退出即可</span><br><span class="line"></span><br><span class="line">4. 同步到远程仓库</span><br></pre></td></tr></table></figure>
+<p>git push -f<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 这里需要注意的是`git push -f`提交会强制覆盖之前的提交，在协同编程时使用需注意</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**如果这时要同步的远程我们新建的分支时，命令为**</span><br></pre></td></tr></table></figure></p>
+<p>git push -f origin master:test</p>
+<h2 id=""><a href="#" class="headerlink" title="`"></a><code>`</code></h2><p>参考链接：</p>
+<p><a href="https://blog.csdn.net/yangcs2009/article/details/47166361" target="_blank" rel="noopener">https://blog.csdn.net/yangcs2009/article/details/47166361</a></p>
+<p><a href="https://blog.csdn.net/wzq6578702/article/details/76736008" target="_blank" rel="noopener">https://blog.csdn.net/wzq6578702/article/details/76736008</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/22/jsp无法引入js文件解决办法/" rel="next" title="jsp无法引入js文件解决办法">
+                <i class="fa fa-chevron-left"></i> jsp无法引入js文件解决办法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+ 
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzcyOC8xNDI1OQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+         
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/huge.jpg"
+                alt="辞树" />
+            
+              <p class="site-author-name" itemprop="name">辞树</p>
+              <p class="site-description motion-element" itemprop="description">朱颜辞镜花辞树</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/coldwarm7" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:coldwarmtree@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#将代码提交到远程仓库的新分支上"><span class="nav-number">1.</span> <span class="nav-text">将代码提交到远程仓库的新分支上</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Rebase-150a643-2fad1ae-onto-150a643"><span class="nav-number">2.</span> <span class="nav-text">Rebase 150a643..2fad1ae onto 150a643</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Rebase-150a643-2fad1ae-onto-150a643-1"><span class="nav-number">3.</span> <span class="nav-text">Rebase 150a643..2fad1ae onto 150a643</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Commands"><span class="nav-number">4.</span> <span class="nav-text">Commands:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#p-pick-use-commit"><span class="nav-number">5.</span> <span class="nav-text">p, pick = use commit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#r-reword-use-commit-but-edit-the-commit-message"><span class="nav-number">6.</span> <span class="nav-text">r, reword = use commit, but edit the commit message</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#e-edit-use-commit-but-stop-for-amending"><span class="nav-number">7.</span> <span class="nav-text">e, edit = use commit, but stop for amending</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s-squash-use-commit-but-meld-into-previous-commit"><span class="nav-number">8.</span> <span class="nav-text">s, squash = use commit, but meld into previous commit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#f-fixup-like-“squash”-but-discard-this-commit’s-log-message"><span class="nav-number">9.</span> <span class="nav-text">f, fixup = like “squash”, but discard this commit’s log message</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#x-exec-run-command-the-rest-of-the-line-using-shell"><span class="nav-number">10.</span> <span class="nav-text">x, exec = run command (the rest of the line) using shell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#This-is-a-combination-of-4-commits"><span class="nav-number">11.</span> <span class="nav-text">This is a combination of 4 commits.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-first-commit’s-message-is"><span class="nav-number">12.</span> <span class="nav-text">The first commit’s message is:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-2nd-commit’s-message-is"><span class="nav-number">13.</span> <span class="nav-text">The 2nd commit’s message is:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-3rd-commit’s-message-is"><span class="nav-number">14.</span> <span class="nav-text">The 3rd commit’s message is:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-4th-commit’s-message-is"><span class="nav-number">15.</span> <span class="nav-text">The 4th commit’s message is:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Please-enter-the-commit-message-for-your-changes-Lines-starting"><span class="nav-number">16.</span> <span class="nav-text">Please enter the commit message for your changes. Lines starting</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#with-‘-’-will-be-ignored-and-an-empty-message-aborts-the-commit"><span class="nav-number">17.</span> <span class="nav-text">with ‘#’ will be ignored, and an empty message aborts the commit.</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">17.1.</span> <span class="nav-text">`</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+ 
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">辞树</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+--> 
+
+
+
+
+
+
+ 
+      </div>
+    </footer>
+    
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i> 
+    </div>
+     
+  </div>
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+ 
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+ 
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+ 
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+ 
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+  
+ 
+ 
+ 
+
+</body>
+
+</html>
