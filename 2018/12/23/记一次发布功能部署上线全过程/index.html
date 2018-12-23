@@ -63,7 +63,7 @@
 
 
 
-  <meta name="keywords" content="linux,mysql,phpstudy," />
+  <meta name="keywords" content="git,Jenkins,walle," />
 
 
 
@@ -76,22 +76,27 @@
 
 
 
-<meta name="description" content="最近在玩linux遇到的各种坑">
-<meta name="keywords" content="linux,mysql,phpstudy">
+<meta name="description" content="git在企业开发的基本流程">
+<meta name="keywords" content="git,Jenkins,walle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记一次centos7安装mysql5.7遇到的坑（phpstudy相关）">
-<meta property="og:url" content="http://yoursite.com/2018/12/12/记一次centos7安装mysql5-7遇到的坑（phpstudy相关）/index.html">
+<meta property="og:title" content="记一次发布功能部署上线全过程">
+<meta property="og:url" content="http://yoursite.com/2018/12/23/记一次发布功能部署上线全过程/index.html">
 <meta property="og:site_name" content="coldwarm7">
-<meta property="og:description" content="最近在玩linux遇到的各种坑">
+<meta property="og:description" content="git在企业开发的基本流程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-12/65311048.jpg">
-<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-12/68070870.jpg">
-<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-12/29787188.jpg">
-<meta property="og:updated_time" content="2018-12-12T14:36:22.756Z">
+<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/79105308.jpg">
+<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/69595134.jpg">
+<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/78524287.jpg">
+<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/20429228.jpg">
+<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/5738131.jpg">
+<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/27655853.jpg">
+<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/52937603.jpg">
+<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/11158394.jpg">
+<meta property="og:updated_time" content="2018-12-23T07:17:15.408Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记一次centos7安装mysql5.7遇到的坑（phpstudy相关）">
-<meta name="twitter:description" content="最近在玩linux遇到的各种坑">
-<meta name="twitter:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-12/65311048.jpg">
+<meta name="twitter:title" content="记一次发布功能部署上线全过程">
+<meta name="twitter:description" content="git在企业开发的基本流程">
+<meta name="twitter:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/79105308.jpg">
 
 
 
@@ -121,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/12/记一次centos7安装mysql5-7遇到的坑（phpstudy相关）/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/23/记一次发布功能部署上线全过程/"/>
 
 
 
 
 
-  <title>记一次centos7安装mysql5.7遇到的坑（phpstudy相关） | coldwarm7</title>
+  <title>记一次发布功能部署上线全过程 | coldwarm7</title>
   
 
 
@@ -257,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/记一次centos7安装mysql5-7遇到的坑（phpstudy相关）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/23/记一次发布功能部署上线全过程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="辞树">
@@ -274,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">记一次centos7安装mysql5.7遇到的坑（phpstudy相关）</h1>
+          <h1 class="post-title" itemprop="name headline">记一次发布功能部署上线全过程</h1>
         
 
         <div class="post-meta">
@@ -286,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T22:33:56+08:00">
-                2018-12-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-23T15:13:31+08:00">
+                2018-12-23
               </time>
             
 
@@ -309,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/遇到的问题/" itemprop="url" rel="index">
-                    <span itemprop="name">遇到的问题</span>
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
                   </a>
                 </span>
 
@@ -346,36 +351,31 @@
       
 
       
-        <center>最近在玩linux遇到的各种坑</center>
+        <center>git在企业开发的基本流程</center>
 
 <a id="more"></a>
-<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>安装centos7之后安装了phpStudy for linux 想要一键配置linux php环境，但是发现无法修改mysql密码，尝试许多可能无果</p>
-<p>重新安装单独mysql5.7，按照<a href="https://blog.csdn.net/zyw_java/article/details/70949596" target="_blank" rel="noopener">安装教程</a>一切顺利，最后也修改了密码，但是我不死心，想要重新试试phpstudy的mysql</p>
-<h2 id="重新启动phpstudy"><a href="#重新启动phpstudy" class="headerlink" title="重新启动phpstudy"></a>重新启动phpstudy</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phpstudy start</span><br></pre></td></tr></table></figure>
-<p>重启过后遇到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 2002 (HY000): Can&apos;t connect to local MySQL server through socket &apos;/phpstudy/data/mysql.sock&apos; (2)</span><br></pre></td></tr></table></figure>
-<p>google之后尝试软连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s file1 file1soft</span><br></pre></td></tr></table></figure>
-<p>之后还是无法启动，并且遇到了一系列问题，最后怒删之。</p>
-<h2 id="重启mysql"><a href="#重启mysql" class="headerlink" title="重启mysql"></a>重启mysql</h2><p>之后重启单独安装的mysql，发现无法启动成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 2002 (HY000): Can&apos;t connect to local MySQL server through socket &apos;/phpstudy/data/mysql.sock&apos; (2)</span><br></pre></td></tr></table></figure>
-<p>之后意识到应该是mysql的配置文件中<code>socket</code>配置的依然是之前的phpstudy的<code>socket</code>地址，随后进入mysql配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/my.cnf</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">#password       = your_password</span><br><span class="line">port            = 3306</span><br><span class="line">socket          = /tmp/mysql.sock</span><br><span class="line"></span><br><span class="line"># Here follows entries for some specific programs</span><br><span class="line"></span><br><span class="line"># The MySQL server</span><br><span class="line">[mysqld]</span><br><span class="line">port            = 3306</span><br><span class="line">socket          = /tmp/mysql.sock</span><br></pre></td></tr></table></figure>
-<p>将<code>client</code>和<code>mysqld</code>里面的<code>socket</code>都改为默认的地址，也就是<code>/tmp/mysql.sock</code></p>
-<p>重启mysql</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start</span><br><span class="line"></span><br><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
-<p>查看mysql状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld status</span><br></pre></td></tr></table></figure>
-<p><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-12/65311048.jpg" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status mysqld.service</span><br></pre></td></tr></table></figure>
-<p><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-12/68070870.jpg" alt=""></p>
-<p>这里mysql已经启动成功了</p>
-<p><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-12/29787188.jpg" alt=""></p>
-<p>成功启动mysql</p>
-<hr>
-<p>linux还是好好配php环境吧，phpstudy在linux上并不好用</p>
-<p>要多敲敲linux 命令行了</p>
+<h2 id="基于master分支checkout-一个新分支，比如feature-xxx-git-checkout-b-feature-xxx"><a href="#基于master分支checkout-一个新分支，比如feature-xxx-git-checkout-b-feature-xxx" class="headerlink" title="基于master分支checkout 一个新分支，比如feature/xxx (git checkout -b feature/xxx)"></a>基于master分支checkout 一个新分支，比如feature/xxx (git checkout -b feature/xxx)</h2><p><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/79105308.jpg" alt=""></p>
+<p>这样就在新建的本地分支上进行开发</p>
+<p><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/69595134.jpg" alt=""></p>
+<p>若是和其他同事协同开发，需推送功能分支到远端，(git push —set-upstream origin feature/xxx)</p>
+<p>其他同事则检出前面的新分支(git pull &amp;&amp; git checkout feature/xxx )<br>完成开发，合并分支时如果遇到冲突，前端同学合并前端代码，后端同学合并后端代码，两人最好聚在一起分析冲突，避免合并错误</p>
+<h2 id="提交测试，合并到develop-git-checkout-develop-amp-amp-git-merge-—no-ff-feature-xxx"><a href="#提交测试，合并到develop-git-checkout-develop-amp-amp-git-merge-—no-ff-feature-xxx" class="headerlink" title="提交测试，合并到develop (git checkout develop &amp;&amp; git merge —no-ff feature/xxx)"></a>提交测试，合并到develop (git checkout develop &amp;&amp; git merge —no-ff feature/xxx)</h2><p>在pull上传的代码的时候</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git pull origin 线上开发分支     //如果和同事协同开发首先要pull更新线上分支代码</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;&quot;                //新建一次提交</span><br><span class="line"></span><br><span class="line">git checkout develop                //切换到本地仓库的develop分支上</span><br><span class="line">git pull origin develop             //从远程仓库pull下来最新的代码，防止冲突</span><br><span class="line">git merge 开发分支                   //将本地自己的开发分支合并到本地develop分支上</span><br><span class="line">git push origin develop:线上开发分支   //将本地的develop分支push到远程代码仓库的自己的开发分支上</span><br><span class="line"></span><br><span class="line">//测试环境下可以自己申请merge request 并同意，之后在jenkins中构建，walle中部署</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete &lt;branchName&gt;  //开发最终完成后删除远程线上分支</span><br></pre></td></tr></table></figure>
+<p><strong>注意：<code>git push origin develop:线上开发分支</code> 中 ： 冒号前后一定不要有空格，如果有空格，会直接push到空格前后的两个分支上！：冒号前后一定不要有空格！！！</strong></p>
+<p><strong>注意：walle部署的时候测试环境部署选择的分支是develop_jenkins，正式生产环境选择的分支是release_jenkins</strong></p>
+<p>在jenkins生成测试分支(develop_jenkins)，然后在walle的预发布环境中选择测试分支，发布代码到测试机</p>
+<blockquote>
+<p>jenkins构建与walle部署与下面提交正式环境类似，不多做赘述</p>
+</blockquote>
+<h2 id="测试完成，合并到master，此时需要使用wpsgit的merge-request方式合并，指定审核人，由审核人合并"><a href="#测试完成，合并到master，此时需要使用wpsgit的merge-request方式合并，指定审核人，由审核人合并" class="headerlink" title="测试完成，合并到master，此时需要使用wpsgit的merge request方式合并，指定审核人，由审核人合并"></a>测试完成，合并到master，此时需要使用wpsgit的merge request方式合并，指定审核人，由审核人合并</h2><p><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/78524287.jpg" alt=""></p>
+<p>分支合并完成之后在jenkins中进行项目构建<br><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/20429228.jpg" alt=""></p>
+<p>在正式上线环境中发布部署<br><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/5738131.jpg" alt=""></p>
+<p><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/27655853.jpg" alt=""></p>
+<p><strong>需要注意的是，测试环境中选择的分支为develop_jenkins,而正式上线的分支选择为release_jenkins进行上线部署</strong></p>
+<p>随后部署上线<br><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/52937603.jpg" alt=""></p>
+<p>上线成功<br><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/11158394.jpg" alt=""></p>
+<p><strong>注意</strong> ： 完整的过程需要先在develop中进行合并测试，测试通过才可以合并到master分支上。</p>
 
       
     </div>
@@ -393,11 +393,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+            <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
           
-            <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+            <a href="/tags/Jenkins/" rel="tag"><i class="fa fa-tag"></i> Jenkins</a>
           
-            <a href="/tags/phpstudy/" rel="tag"><i class="fa fa-tag"></i> phpstudy</a>
+            <a href="/tags/walle/" rel="tag"><i class="fa fa-tag"></i> walle</a>
           
         </div>
       
@@ -410,8 +410,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/10/git-push远程新建分支以及合并commit提交/" rel="next" title="git push远程新建分支以及合并commit提交">
-                <i class="fa fa-chevron-left"></i> git push远程新建分支以及合并commit提交
+              <a href="/2018/12/12/记一次centos7安装mysql5-7遇到的坑（phpstudy相关）/" rel="next" title="记一次centos7安装mysql5.7遇到的坑（phpstudy相关）">
+                <i class="fa fa-chevron-left"></i> 记一次centos7安装mysql5.7遇到的坑（phpstudy相关）
               </a>
             
           </div>
@@ -419,10 +419,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/23/记一次发布功能部署上线全过程/" rel="prev" title="记一次发布功能部署上线全过程">
-                记一次发布功能部署上线全过程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -584,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前提"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重新启动phpstudy"><span class="nav-number">2.</span> <span class="nav-text">重新启动phpstudy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启mysql"><span class="nav-number">3.</span> <span class="nav-text">重启mysql</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于master分支checkout-一个新分支，比如feature-xxx-git-checkout-b-feature-xxx"><span class="nav-number">1.</span> <span class="nav-text">基于master分支checkout 一个新分支，比如feature/xxx (git checkout -b feature/xxx)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交测试，合并到develop-git-checkout-develop-amp-amp-git-merge-—no-ff-feature-xxx"><span class="nav-number">2.</span> <span class="nav-text">提交测试，合并到develop (git checkout develop &amp;&amp; git merge —no-ff feature/xxx)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试完成，合并到master，此时需要使用wpsgit的merge-request方式合并，指定审核人，由审核人合并"><span class="nav-number">3.</span> <span class="nav-text">测试完成，合并到master，此时需要使用wpsgit的merge request方式合并，指定审核人，由审核人合并</span></a></li></ol></div>
             
 
           </div>
