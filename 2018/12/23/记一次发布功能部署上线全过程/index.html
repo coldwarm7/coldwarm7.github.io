@@ -84,19 +84,10 @@
 <meta property="og:site_name" content="coldwarm7">
 <meta property="og:description" content="git在企业开发的基本流程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/79105308.jpg">
-<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/69595134.jpg">
-<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/78524287.jpg">
-<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/20429228.jpg">
-<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/5738131.jpg">
-<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/27655853.jpg">
-<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/52937603.jpg">
-<meta property="og:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/11158394.jpg">
-<meta property="og:updated_time" content="2018-12-23T07:17:15.408Z">
+<meta property="og:updated_time" content="2019-01-03T15:17:51.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次发布功能部署上线全过程">
 <meta name="twitter:description" content="git在企业开发的基本流程">
-<meta name="twitter:image" content="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/79105308.jpg">
 
 
 
@@ -354,9 +345,7 @@
         <center>git在企业开发的基本流程</center>
 
 <a id="more"></a>
-<h2 id="基于master分支checkout-一个新分支，比如feature-xxx-git-checkout-b-feature-xxx"><a href="#基于master分支checkout-一个新分支，比如feature-xxx-git-checkout-b-feature-xxx" class="headerlink" title="基于master分支checkout 一个新分支，比如feature/xxx (git checkout -b feature/xxx)"></a>基于master分支checkout 一个新分支，比如feature/xxx (git checkout -b feature/xxx)</h2><p><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/79105308.jpg" alt=""></p>
-<p>这样就在新建的本地分支上进行开发</p>
-<p><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/69595134.jpg" alt=""></p>
+<h2 id="基于master分支checkout-一个新分支，比如feature-xxx-git-checkout-b-feature-xxx"><a href="#基于master分支checkout-一个新分支，比如feature-xxx-git-checkout-b-feature-xxx" class="headerlink" title="基于master分支checkout 一个新分支，比如feature/xxx (git checkout -b feature/xxx)"></a>基于master分支checkout 一个新分支，比如feature/xxx (git checkout -b feature/xxx)</h2><p>这样就在新建的本地分支上进行开发</p>
 <p>若是和其他同事协同开发，需推送功能分支到远端，(git push —set-upstream origin feature/xxx)</p>
 <p>其他同事则检出前面的新分支(git pull &amp;&amp; git checkout feature/xxx )<br>完成开发，合并分支时如果遇到冲突，前端同学合并前端代码，后端同学合并后端代码，两人最好聚在一起分析冲突，避免合并错误</p>
 <h2 id="提交测试，合并到develop-git-checkout-develop-amp-amp-git-merge-—no-ff-feature-xxx"><a href="#提交测试，合并到develop-git-checkout-develop-amp-amp-git-merge-—no-ff-feature-xxx" class="headerlink" title="提交测试，合并到develop (git checkout develop &amp;&amp; git merge —no-ff feature/xxx)"></a>提交测试，合并到develop (git checkout develop &amp;&amp; git merge —no-ff feature/xxx)</h2><p>在pull上传的代码的时候</p>
@@ -368,13 +357,10 @@
 <blockquote>
 <p>jenkins构建与walle部署与下面提交正式环境类似，不多做赘述</p>
 </blockquote>
-<h2 id="测试完成，合并到master，此时需要使用wpsgit的merge-request方式合并，指定审核人，由审核人合并"><a href="#测试完成，合并到master，此时需要使用wpsgit的merge-request方式合并，指定审核人，由审核人合并" class="headerlink" title="测试完成，合并到master，此时需要使用wpsgit的merge request方式合并，指定审核人，由审核人合并"></a>测试完成，合并到master，此时需要使用wpsgit的merge request方式合并，指定审核人，由审核人合并</h2><p><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/78524287.jpg" alt=""></p>
-<p>分支合并完成之后在jenkins中进行项目构建<br><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/20429228.jpg" alt=""></p>
-<p>在正式上线环境中发布部署<br><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/5738131.jpg" alt=""></p>
-<p><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/27655853.jpg" alt=""></p>
-<p><strong>需要注意的是，测试环境中选择的分支为develop_jenkins,而正式上线的分支选择为release_jenkins进行上线部署</strong></p>
-<p>随后部署上线<br><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/52937603.jpg" alt=""></p>
-<p>上线成功<br><img src="http://coldwarm7.oss-cn-beijing.aliyuncs.com/18-12-10/11158394.jpg" alt=""></p>
+<h2 id="测试完成，合并到master，此时需要使用wpsgit的merge-request方式合并，指定审核人，由审核人合并"><a href="#测试完成，合并到master，此时需要使用wpsgit的merge-request方式合并，指定审核人，由审核人合并" class="headerlink" title="测试完成，合并到master，此时需要使用wpsgit的merge request方式合并，指定审核人，由审核人合并"></a>测试完成，合并到master，此时需要使用wpsgit的merge request方式合并，指定审核人，由审核人合并</h2><p>分支合并完成之后在jenkins中进行项目构建</p>
+<p>在正式上线环境中发布部署</p>
+<p>随后部署上线</p>
+<p>上线成功</p>
 <p><strong>注意</strong> ： 完整的过程需要先在develop中进行合并测试，测试通过才可以合并到master分支上。</p>
 
       
@@ -419,6 +405,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/03/golang项目部署在linux步骤记录/" rel="prev" title="golang项目部署在linux步骤记录">
+                golang项目部署在linux步骤记录 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -502,7 +492,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -513,7 +503,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -524,7 +514,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -598,7 +588,7 @@
     </main>
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
